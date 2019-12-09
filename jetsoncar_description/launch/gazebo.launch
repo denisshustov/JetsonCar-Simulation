@@ -14,7 +14,7 @@
 		<arg name="paused" value="false"/>
 		<arg name="use_sim_time" value="true"/>
 		<arg name="headless" value="false"/>
-	</include>	
+	</include>
 
 	<!-- urdf xml robot description loaded on the Parameter Server (for use in RViz) - this also converts the xacro into a proper urdf file -->
 	<param name="robot_description" command="$(find xacro)/xacro '$(find jetsoncar_description)/urdf/jetsoncar.xacro'" />
@@ -33,17 +33,19 @@
                                             joint_state_controller"/>
 
 	<!-- calculate and publish the tf's for each joint based on the urdf file within robot_description -->
-	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+	<!-- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
 		<param name="publish_frequency" type="double" value="50.0" />
-		<remap from="/joint_states" to="/jetsoncar/joint_states" /> <!-- this line is very important for visualization in RVIZ when used in conjunction with Gazebo (because of the namespace change) -->
-	</node>
+		<remap from="/joint_states" to="/jetsoncar/joint_states" />
+	</node> -->
 
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" respawn="false" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
 	<!-- rviz display -->
 	<node name="rviz_visualizer" pkg="rviz" type="rviz" required="true" args="-d $(find jetsoncar_description)/rviz/tf_display.rviz"/>
 
 	<node pkg="jetsoncar_gazebo" name="jetsoncar_encoder_node" type="encoder.py"/>-->
 
 	<!--<node pkg="jetsoncar_gazebo" name="gazebo_odometry_node" type="gazebo_odometry.py"/>-->
-
-	<node pkg="jetsoncar_gazebo" name="gazebo_test_commands" type="test_commands.py"/>
+<!--
+	<node pkg="jetsoncar_gazebo" name="gazebo_test_commands" type="test_commands.py"/> -->
 </launch>

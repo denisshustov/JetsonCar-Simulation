@@ -8,9 +8,9 @@
 
 	<!-- Visual and physical properties -->
 	<!-- See http://gazebosim.org/tutorials?tut=ros_urdf&cat=connect_ros -->
-	<gazebo reference="baseplate">		
+	<gazebo reference="baseplate">
 		<mu1 value="0.0"/> <!-- Columb friction coefficient in fdir1 direction -->
-		<mu2 value="0.0"/> <!-- Columb friction in perpendicular direction to fdir1 -->		
+		<mu2 value="0.0"/> <!-- Columb friction in perpendicular direction to fdir1 -->
 		<kp  value="10000000.0" /> <!-- contact stiffness -->
 		<kd  value="1.0" /> <!-- contact damping -->
 		<material>Gazebo/Grey</material>
@@ -33,7 +33,7 @@
 		<kd  value="1.0" /> <!-- contact damping -->
 		<material>Gazebo/Grey</material>
 		<!--<turnGravityOff>false</turnGravityOff>-->
-	</gazebo>	
+	</gazebo>
 
 	<gazebo reference="rear_mount">
 		<mu1 value="0.0"/> <!-- Columb friction coefficient in fdir1 direction -->
@@ -42,8 +42,8 @@
 		<kd  value="1.0" /> <!-- contact damping -->
 		<material>Gazebo/Grey</material>
 		<!--<turnGravityOff>false</turnGravityOff>-->
-	</gazebo>	
-	
+	</gazebo>
+
 	<gazebo reference="front_shaft">
 		<mu1 value="0.0"/> <!-- Columb friction coefficient in fdir1 direction -->
 		<mu2 value="0.0"/> <!-- Columb friction in perpendicular direction to fdir1 -->
@@ -157,16 +157,20 @@
 	</gazebo>
 
 
-	<!-- We need to link Gazebo and ROS and let Gazebo load all the previously defined ROS parameters. Therefore this Gazebo file should be included in the end of the main xacro file! --> 
+	<!-- We need to link Gazebo and ROS and let Gazebo load all the previously defined ROS parameters. Therefore this Gazebo file should be included in the end of the main xacro file! -->
 
 	<!-- Link Gazebo and ROS -->
 	<gazebo>
 		<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
 			<robotNamespace>/jetsoncar</robotNamespace>
 			<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+            <legacyModeNS>true</legacyModeNS>
 		</plugin>
 	</gazebo>
 
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+        <rosparam param="source_list">front_right_wheel_velocity_controller</rosparam>
+    </node>
 
 	<!-- Plugins, eg. sensors -->
 	<!-- hokuyo LiDAR can be found here: https://github.com/mit-racecar/racecar-simulator/blob/master/racecar_description/urdf/racecar.gazebo#L59 -->
