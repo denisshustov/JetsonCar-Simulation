@@ -38,8 +38,10 @@
 		<remap from="/joint_states" to="/jetsoncar/joint_states" />
 	</node> -->
 
-    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" respawn="false" />
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/>
+    <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" respawn="false" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher"/> -->
+	
+	
 	<!-- rviz display -->
 	<!-- <node name="rviz_visualizer" pkg="rviz" type="rviz" required="true" args="-d $(find jetsoncar_description)/rviz/tf_display.rviz"/> -->
 <!-- 
