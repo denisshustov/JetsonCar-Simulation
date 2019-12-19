@@ -119,24 +119,22 @@
 		<material>Gazebo/Black</material>
 		<!--<turnGravityOff>false</turnGravityOff>-->
 	</gazebo>
-
+<!-- 
 	<gazebo reference="left_camera_mount">
-		<mu1 value="0.0"/> <!-- Columb friction coefficient in fdir1 direction -->
-		<mu2 value="0.0"/> <!-- Columb friction in perpendicular direction to fdir1 -->
-		<kp  value="10000000.0" /> <!-- contact stiffness -->
-		<kd  value="1.0" /> <!-- contact damping -->
+		<mu1 value="0.0"/> 
+		<mu2 value="0.0"/> 
+		<kp  value="10000000.0" />
+		<kd  value="1.0" />
 		<material>Gazebo/Black</material>
-		<!--<turnGravityOff>false</turnGravityOff>-->
 	</gazebo>
 
 	<gazebo reference="left_camera">
-		<mu1 value="0.0"/> <!-- Columb friction coefficient in fdir1 direction -->
-		<mu2 value="0.0"/> <!-- Columb friction in perpendicular direction to fdir1 -->
-		<kp  value="10000000.0" /> <!-- contact stiffness -->
-		<kd  value="1.0" /> <!-- contact damping -->
+		<mu1 value="0.0"/> 
+		<mu2 value="0.0"/> 
+		<kp  value="10000000.0" />
+		<kd  value="1.0" />
 		<material>Gazebo/Blue</material>
-		<!--<turnGravityOff>false</turnGravityOff>-->
-	</gazebo>
+	</gazebo> -->
 
 	<gazebo reference="right_camera_mount">
 		<mu1 value="0.0"/> <!-- Columb friction coefficient in fdir1 direction -->

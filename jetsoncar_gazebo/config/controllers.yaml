@@ -1,5 +1,3 @@
-# These are parameters to be used with the built in controllers for the actuators. This YAML file is used as part of the gazebo.launch file in the jetsoncar_description repository
-
 jetsoncar: # namespace
   # Publish all joint states -----------------------------------
   joint_state_controller:

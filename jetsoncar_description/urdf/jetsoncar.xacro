@@ -206,7 +206,7 @@
 
 
 	<!-- Sensors -->
-	<link name="left_camera_mount">
+	<!-- <link name="left_camera_mount">
 		<visual>
 			<material name="blue"/>
 			<xacro:camera_mount_geometry/>
@@ -232,7 +232,7 @@
 			<xacro:camera_inertial/>
 		</inertial>
 	</link>
-	<xacro:fixed_offset_joint parent="left_camera_mount" child="left_camera" offset="0 0 ${camera_mount_height+camera_height/2}"/>
+	<xacro:fixed_offset_joint parent="left_camera_mount" child="left_camera" offset="0 0 ${camera_mount_height+camera_height/2}"/> -->
 
 	<link name="right_camera_mount">
 		<visual>

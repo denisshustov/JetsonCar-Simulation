@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+  <node name="jetson_hw" pkg="jetson_hw" type="jetson_hw" output="screen"/>
+</launch>
