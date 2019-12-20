@@ -16,7 +16,7 @@
 	<param name="robot_description" command="$(find xacro)/xacro '$(find jetsoncar_description)/urdf/jetsoncar.xacro'" />
 	<param name="use_gui" value="$(arg gui)"/>
 
-	<node name="jetsoncar_spawn" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model jetsoncar -z 0.05" respawn="false" output="screen" /> <!-- make sure model name matches the robot name in the xacro file -->
+	<node name="jetsoncar_spawn" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model jetsoncar -z 0.05" respawn="false" output="screen" />
 
 	<rosparam file="$(find jetsoncar_gazebo)/config/controllers.yaml" command="load"/>
   	<node name="controller_manager" pkg="controller_manager" type="spawner" respawn="false"

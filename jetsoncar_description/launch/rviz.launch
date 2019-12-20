@@ -1,13 +1,6 @@
 <?xml version="1.0"?>
 <launch>
 	<arg name="gui" default="true" />
-	<include file="$(find jetson_hw)/launch/jetson_wh.launch"/>
-
-	<rosparam file="$(find jetsoncar_gazebo)/config/controllers.yaml" command="load"/>
-  	<node name="controller_manager" pkg="controller_manager" type="spawner" respawn="false"
-        output="screen" args="front_right_wheel_velocity_controller front_left_wheel_velocity_controller
-                                            front_right_hinge_position_controller front_left_hinge_position_controller
-                                            joint_state_controller"/>
 
 	<param name="robot_description" command="$(find xacro)/xacro '$(find jetsoncar_description)/urdf/jetsoncar.xacro'" />
 	<param name="use_gui" value="$(arg gui)"/>
@@ -17,5 +10,4 @@
 	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 
 	<node name="rviz_visualizer" pkg="rviz" type="rviz" required="true" args="-d $(find jetsoncar_description)/rviz/tf_display.rviz" />
-
 </launch>

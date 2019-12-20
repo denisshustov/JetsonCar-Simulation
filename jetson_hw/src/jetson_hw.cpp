@@ -83,7 +83,7 @@ class JetsonHW: public hardware_interface::RobotHW
         pos[1] = REVOLUTIONS_PER_TICK * (encoder_left - prev_right);
         prev_left=encoder_left;
         prev_right=encoder_right;
-        ROS_INFO(">>>WH vel  = %.2f, %.2f", vel[0], vel[1]);
+        //ROS_INFO(">>>WH vel  = %.2f, %.2f", vel[0], vel[1]);
 
     }
 

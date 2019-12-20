@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="gui" default="true" />
+	
+    <param name="robot_description" command="$(find xacro)/xacro '$(find jetsoncar_description)/urdf/jetsoncar.xacro'" />
+	<param name="use_gui" value="$(arg gui)"/>
+
+	<include file="$(find jetson_hw)/launch/jetson_wh.launch"/> 
+
+	<rosparam file="$(find jetsoncar_gazebo)/config/controllers.yaml" command="load"/>
+  	<node name="controller_manager" pkg="controller_manager" type="spawner" respawn="false"
+        output="screen" args="
+        /jetsoncar/front_right_wheel_velocity_controller 
+		/jetsoncar/front_left_wheel_velocity_controller
+        /jetsoncar/front_right_hinge_position_controller 
+		/jetsoncar/front_left_hinge_position_controller
+		/jetsoncar/joint_state_controller"/>
+
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+</launch>
